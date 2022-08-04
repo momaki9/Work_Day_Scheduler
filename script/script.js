@@ -13,6 +13,7 @@ timeBlocks.append(divRow)
 var allRows = $('.row')
 var saveBtn = $('.saveBtn')
 
+
 function scheduler() {
     var workHours = [
       '8',
@@ -39,18 +40,10 @@ function scheduler() {
     var textInput = $('<textarea>')
     textInput.addClass('textarea col-xl-10 col-md-10 col-10')
     allRows.append(textInput)
-    
-
     var saveBtn = $('<button>')
     saveBtn.addClass('saveBtn col-xl-1 col-md-1 col-1')
-    allRows.append(saveBtn)  
-    saveBtn.on('click', function(event) {
-      // alert("hi")
-      event.preventDefault();
-      localStorage.setItem("Input", JSON.stringify(textInput.text()));
-    })
-    
-    
+    allRows.append(saveBtn) 
+
     if (workHours[i] == hour) {
       textInput.addClass("present")
     } else if (workHours[i] > hour) {
@@ -59,8 +52,23 @@ function scheduler() {
       textInput.addClass("past")
     }
   }
-  JSON.parse(localStorage.getItem("Input"))
-}
+  
+  $('.row').children().eq(1).addClass("8-am-input")
+  $('.row').children().eq(2).addClass("8-am-btn")
+  var eightAmBtn = $('.8-am-btn')
+  var eightAmInput = $('.8-am-input')
+  eightAmBtn.on('click', function () {
+    var eightText = eightAmInput.val()
+    localStorage.setItem("8-AM Input", eightText)
+    
+    
+  })
+  function saveInfo() {
+    var saved = localStorage.getItem("8-AM Input")
+    eightAmInput.val(saved)
+  }
+  saveInfo();
 
+}
 
 scheduler();

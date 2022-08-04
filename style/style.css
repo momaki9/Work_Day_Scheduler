@@ -70,4 +70,9 @@ body {
     transition: all .3s ease-in-out;
   }
 
+.ei-am-input {
+  color: black;
+  font-weight: bold;
+}
+
 

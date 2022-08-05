@@ -1,18 +1,27 @@
-var today = new Date();
-var hour = today.getHours();
+// variable dateEl selects the element by ID
+var dateEl = $('#currentDay');
 
-var el = document.getElementById('currentDay');
-el.innerHTML = today.toDateString();
-
+//this function uses moment to load the current date
+function dateToday() {
+  var currentTime = moment().format('dddd MMMM Do, YYYY');
+  dateEl.text(currentTime);
+}
+// selects the element by class
 var timeBlocks = $('.time-block');
-
+// this creates a div element with class of row and appends it to the timeblock element
 var divRow = $('<div>')
 divRow.addClass('row')
 timeBlocks.append(divRow)
 
+// selects elements by class
 var allRows = $('.row')
 var saveBtn = $('.saveBtn')
 
+//setting a variable to correlate the current hour
+var today = new Date();
+var hour = today.getHours();
+
+// this function outputs each time block and dynamically saves the content to local storage
 function scheduler() {
     var workHours = [
       '8',
@@ -40,7 +49,8 @@ function scheduler() {
     textInput.addClass('textarea col-xl-10 col-md-10 col-10')
     allRows.append(textInput)
     var saveBtn = $('<button>')
-    saveBtn.addClass('saveBtn col-xl-1 col-md-1 col-1')
+    saveBtn.text('')
+    saveBtn.addClass('saveBtn col-xl-1 col-md-1 col-1 bi-alarm')
     allRows.append(saveBtn) 
 
     if (workHours[i] == hour) {
@@ -142,6 +152,7 @@ function scheduler() {
   localStorage.setItem("5PM", fiveText)
   })
 
+  // sub function to save text area content to local storage
   function saveInfo() {
     // 8 AM task
     var savedEi = localStorage.getItem("8AM")
@@ -157,7 +168,7 @@ function scheduler() {
     elevenAmInput.val(savedEl)
     // 12 PM task
     var savedTw = localStorage.getItem("12PM")
-    twelvePmInput.val(savedEl)
+    twelvePmInput.val(savedTw)
     // 1 PM task
     var savedO = localStorage.getItem("1PM")
     onePmInput.val(savedO)
@@ -176,5 +187,6 @@ function scheduler() {
   }
   saveInfo();
 }
-
+// calling both functions when the user loads the page
+dateToday();
 scheduler();

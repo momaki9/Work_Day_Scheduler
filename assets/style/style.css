@@ -34,6 +34,7 @@ body {
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;;
+    
   }
   
   .hour {
@@ -70,9 +71,24 @@ body {
     transition: all .3s ease-in-out;
   }
 
-.ei-am-input {
+.ei-am-input, .n-am-input, .t-am-input, .el-am-input, .tw-pm-input,
+.o-pm-input, .two-pm-input, .th-pm-input, .fo-pm-input, .fi-pm-input {
   color: black;
   font-weight: bold;
+  font-style: oblique;
+  margin-bottom: 2px;
+  padding-bottom: 4px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.hour {
+  font-size: 28px;
+  border-left: 1px dashed black;
+  border-bottom: 1px dashed black;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  padding-bottom: 4px;
 }
 
 

@@ -41,16 +41,16 @@ function scheduler() {
     var hours = ((workHours[i] - 1) % 12 + 1) + " " + suffix 
 
     var timeSlot = $('<h3>')
-    timeSlot.addClass('hour col-xl-1 col-md-1 col-1')
+    timeSlot.addClass('hour col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1')
     timeSlot.text(hours)
     allRows.append(timeSlot)
 
     var textInput = $('<textarea>')
-    textInput.addClass('textarea col-xl-10 col-md-10 col-10')
+    textInput.addClass('textarea col-xl-10 col-lg-10 col-md-10  col-sm-10 col-10')
     allRows.append(textInput)
     var saveBtn = $('<button>')
-    saveBtn.text('')
-    saveBtn.addClass('saveBtn col-xl-1 col-md-1 col-1 bi-alarm')
+    saveBtn.text("Save")
+    saveBtn.addClass('saveBtn col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1')
     allRows.append(saveBtn) 
 
     if (workHours[i] == hour) {
